@@ -1,0 +1,106 @@
+<html>
+<head>
+<title> Validate the Password </title>
+</head>
+<script>
+function validateForm() {
+    //collect form data in JavaScript variables
+   var name = document.getElementById("fname").value;
+   var email = document.getElementById("emailid").value;
+   var pass1 = document.getElementById("pswd1").value;
+   var pass2 = document.getElementById("pswd2").value;
+    
+    
+    //check name should not be empty
+    if(name == "") {
+      alert("Please mentio the name of the person it shouldn't be Empty!!")
+      document.getElementById("blankMsg").innerHTML = "**Write the name of the person it shouldn't be Empty ";
+      return false;
+    }
+
+    if(!isNaN(name)){
+      alert("** Only Characters are allowed");
+      document.getElementById("blankMsg").innerHTML = "** Please Write Characters not Numbers or any symbols ";
+      return false;
+    }
+    
+    if(!isNaN(email)){
+      alert("Email id is Invalid Please Provide correct EMail Id");
+      return false;
+    }
+
+    if(pass1 == "") {
+      alert("Please provide Password It shouldn't be Empty!!")
+      document.getElementById("blankMsg").innerHTML = "**Please provide Password It shouldn't be Empty!! ";
+      return false;
+    }
+
+    if(pass2 == "") {
+      alert("Please provide Confirm Password It shouldn't be Empty!!")
+      document.getElementById("blankMsg").innerHTML = "**Please provide Confirm Password It shouldn't be Empty!! ";
+      return false;
+    }
+
+    if(pass1.length<8){
+      alert("Password should be minimum 8 characters");
+      return false;
+    }
+
+   if(pass1.length>15){
+      alert("Password should be maximum 15 characters");
+      return false;
+    }
+   
+    if(pass1 != pass2){
+      alert("Password is not matched");
+      return false;
+    }
+    else{
+      alert("Password is Matched : Your Validation is Succesfully Validated");
+
+    }
+
+ }
+</script>
+
+<body>
+
+<center>
+<h1 style="color:green">SUDH DIGITAL SHIKCHA</h1>
+<h3> Verify valid password and Email Example </h3>
+
+<form onsubmit ="return validateForm()">
+
+<!-- Enter first name -->
+<td> Name  </td>
+<input type = "text" id = "fname" value = ""> 
+<span id = "blankMsg" style="color:red"> </span> <br><br>
+
+<!-- Enter last name -->
+<td> Email </td>
+<input type = "email" id = "emailid" value = ""> 
+<span id = "emailMsg" style="color:red"> </span> <br><br>
+
+<!-- Create a new password -->
+<td> Create Password </td>
+<input type = "password" id = "pswd1" value = ""> 
+<span id = "createdPassword" style="color:red"> </span> <br><br>
+
+<!?Enter confirm password -->
+<td> Confirm Password  </td>
+<input type = "password" id = "pswd2" value = ""> 
+<span id = "confirmPassword" style="color:red"> </span> <br><br>
+
+<!-- Click to verify valid password -->
+<input type = "submit" value = "Submit">
+
+<!-- Click to reset fields -->
+<button type = "reset" value = "Reset" >Reset</button>
+</form>
+</body>  
+
+</center>
+
+</html>
+
+ 
